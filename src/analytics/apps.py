@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class OrderManagerConfig(AppConfig):
+class AnalyticsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'order_manager'
+    name = 'analytics'
