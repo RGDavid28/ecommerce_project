@@ -25,6 +25,7 @@ urlpatterns = [
     path("analytics/", include("analytics.urls")),
     path("forms/", include("accounts.urls")),
     path("test_templates/", include("test_templates.urls")),
+    path("api/v1/", include("api.urls")),
     path("admin/", admin.site.urls),
 ]
 if not settings.TESTING:
