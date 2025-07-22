@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "cart.apps.CartConfig",
     "order.apps.OrderManagerConfig",
     "product.apps.ProductConfig",
+    "test_templates.apps.TestTemplatesConfig",
     "pages.apps.PagesConfig",
     "django.contrib.admin",
     "django.contrib.auth",
