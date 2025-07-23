@@ -27,9 +27,11 @@ urlpatterns = [
     path("test_templates/", include("test_templates.urls")),
     path("api/v1/", include("api.urls")),
     path("admin/", admin.site.urls),
+    path("api/v2/", include("rest_examples.urls")),
 ]
 if not settings.TESTING:
     urlpatterns = [
         *urlpatterns,
         path("__debug__/", include("debug_toolbar.urls")),
     ]
+    
