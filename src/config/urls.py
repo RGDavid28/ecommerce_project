@@ -28,6 +28,7 @@ urlpatterns = [
     path("api/v1/", include("api.urls")),
     path("admin/", admin.site.urls),
     path("api/v2/", include("rest_examples.urls")),
+    path("api/v3/", include("product.urls")),
 ]
 if not settings.TESTING:
     urlpatterns = [
