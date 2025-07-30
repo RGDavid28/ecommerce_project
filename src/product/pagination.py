@@ -14,6 +14,6 @@ class ProductLOPagination(LimitOffsetPagination):
    offset_query_param      = "start"
 
 class ProductCPagination(CursorPagination):
-   page_size               = 1
+   page_size               = 3
    cursor_query_param      = "cur"
    ordering                = "title" #"-created"

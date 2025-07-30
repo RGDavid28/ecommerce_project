@@ -22,6 +22,7 @@ from django.urls import include, path
 urlpatterns = [
     path("up/", include("up.urls")),
     path("", include("pages.urls")),
+
     path("analytics/", include("analytics.urls")),
     path("forms/", include("accounts.urls")),
     path("test_templates/", include("test_templates.urls")),
@@ -29,6 +30,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/v2/", include("rest_examples.urls")),
     path("api/v3/", include("product.urls")),
+    path("account/", include("user_app.urls")),
 ]
 if not settings.TESTING:
     urlpatterns = [

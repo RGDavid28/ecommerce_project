@@ -34,7 +34,10 @@ ALLOWED_HOSTS = list(map(str.strip, allowed_hosts.split(",")))
 
 # Application definitions
 INSTALLED_APPS = [
+    "user_app.apps.UserAppConfig",
     "rest_framework",
+    'rest_framework.authtoken',
+
     "rest_examples.apps.RestExamplesConfig",
     "api.apps.ApiConfig",
     "billing.apps.BillingConfig",
@@ -170,6 +173,21 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = ["/public", os.path.join(BASE_DIR, "..", "public")]
 STATIC_ROOT = "/public_collected"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES':[
+        'rest_framework.renderers.JSONRenderer',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+       #'rest_framework.authentication.BasicAuthentication',
+       #'rest_framework.authentication.TokenAuthentication',
+       'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ]
+}
+
+SIMPLE_JWT = {
+    "ROTATE_REFRESH_TOKENS":True
+}
 
 # Django Debug Toolbar
 # https://django-debug-toolbar.readthedocs.io/

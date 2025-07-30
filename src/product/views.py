@@ -4,9 +4,14 @@ from .pagination        import  ProductPagination, ProductLOPagination, ProductC
 from .serializers       import  ProductSerializer
 from .models            import Product
 
+from rest_framework.permissions import IsAuthenticated
+
 class ProductListView(generics.ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 #    pagination_class = ProductPagination
 #    pagination_class = ProductLOPagination
-    pagination_class = ProductCPagination
+    pagination_class    = ProductCPagination
+    permission_classes  = [
+        IsAuthenticated
+    ]
