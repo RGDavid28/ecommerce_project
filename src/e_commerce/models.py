@@ -1,0 +1,40 @@
+import os
+from decimal                  import Decimal
+from django.conf              import settings
+from django.db                import models
+from django.db.models.signals import pre_save, post_save
+
+
+def upload_image_path(filepath):
+    base_name = os.path.basename(filepath)
+    name, ext = os.path.splitext(base_name)
+    return name, ext
+
+class Product(models.Model):
+    title       = models.CharField(max_length=120)
+    slug        = models.SlugField(blank=True, unique=True)
+    description = models.TextField()
+    price       = models.DecimalField(decimal_places=2,max_digits=20, default=39.99)
+    image       = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
+    featured    = models.BooleanField(default=False)
+    active      = models.BooleanField(default=True)  
+    timestamp   = models.DateTimeField(auto_now_add=True) 
+    is_digital  = models.BooleanField(default=False)
+    description = models.TextField()
+    stock = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+class User(models.Model):
+    username = models.CharField(max_length=150, unique=True)
+    email = models.EmailField(unique=True)
+    first_name = models.CharField(max_length=30, blank=True)
+    last_name = models.CharField(max_length=150, blank=True)
+    is_active = models.BooleanField(default=True)
+    date_joined = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.username

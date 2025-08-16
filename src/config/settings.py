@@ -36,9 +36,9 @@ ALLOWED_HOSTS = list(map(str.strip, allowed_hosts.split(",")))
 INSTALLED_APPS = [
     "user_app.apps.UserAppConfig",
     "rest_framework",
-    'rest_framework.authtoken',
-
+    "rest_framework.authtoken",
     "rest_examples.apps.RestExamplesConfig",
+    "e_commerce.apps.ECommerceConfig",
     "api.apps.ApiConfig",
     "billing.apps.BillingConfig",
     "accounts.apps.AccountsConfig",
